@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.util.JsonReader;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -56,8 +58,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 generatedStr = generatedTV.getText().toString();
                 if (!generatedStr.equals("")){
-                    tts.setLanguage(Locale.ENGLISH);
-                    tts.speak(generatedStr, TextToSpeech.QUEUE_FLUSH, null, null);
+                    tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+                        @Override
+                        public void onInit(int i) {
+                            tts.setLanguage(Locale.ENGLISH);
+                            tts.speak(generatedStr, TextToSpeech.QUEUE_FLUSH, null);
+                        }
+                    });
                 }
 
             }
@@ -102,14 +109,17 @@ public class MainActivity extends AppCompatActivity {
                    public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                        if(response.isSuccessful()) {
                         String txt = response.body().string();
+                        StringBuilder stringBuilder = new StringBuilder();
+                           String[] words = txt.split("\",\"");
+                           stringBuilder.append(words[0]);
+                           words = stringBuilder.toString().split(":\"");
+                           stringBuilder.delete(0, stringBuilder.length());
 
-                              // JSONObject json = new JSONObject(Objects.requireNonNull(response.body()).string());
-                               //System.out.println(json);
-
+                           stringBuilder.append(words[0]);
                            MainActivity.this.runOnUiThread(new Runnable() {
                                @Override
                                public void run() {
-                                       generatedTV.setText(txt);
+                                       generatedTV.setText(stringBuilder.toString());
 
                                }
                            });
