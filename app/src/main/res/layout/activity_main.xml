@@ -15,23 +15,26 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:text="GPT-3 Model"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="34sp"
-        android:layout_marginTop="10dp"
+        android:fontFamily="@font/bold"
         />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/promptEditText"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:layout_below="@id/title"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
         android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/bg_prompt"
-
+        android:fontFamily="@font/light"
+        android:hint="Write a prompt..."
+        android:padding="5dp"
         android:textColor="@color/white"
         android:textSize="14sp"
 
@@ -40,43 +43,49 @@
     <TextView
         android:id="@+id/resultTextView"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="450dp"
         android:layout_below="@id/promptEditText"
+        android:layout_marginHorizontal="10dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/bg_prompt"
+        android:isScrollContainer="true"
         android:textColor="@color/white"
-        android:textSize="14sp"
-        android:layout_marginHorizontal="10dp"
-
-        />
+        android:fontFamily="@font/semibold"
+        android:textSize="14sp" />
 
     <RelativeLayout
         android:id="@+id/buttonLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_below="@id/resultTextView"
+        android:layout_marginTop="10dp"
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
-   >
+        android:layout_marginBottom="5dp">
 
         <ImageButton
-                android:id="@+id/readButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-            />
+            android:id="@+id/readButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/bg_buttons"
+            android:src="@drawable/ic_pronounce" />
 
         <ImageButton
             android:id="@+id/settingsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true" />
+            android:layout_centerInParent="true"
+            android:background="@drawable/bg_buttons"
+            android:src="@drawable/ic_tune" />
+
         <ImageButton
             android:id="@+id/translateButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:background="@drawable/bg_buttons"
+            android:src="@drawable/ic_generate"
             />
 
     </RelativeLayout>
