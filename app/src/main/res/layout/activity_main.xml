@@ -26,7 +26,7 @@
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/promptEditText"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="80dp"
         android:layout_below="@id/title"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="10dp"
@@ -34,7 +34,7 @@
         android:background="@drawable/bg_prompt"
         android:fontFamily="@font/light"
         android:hint="Write a prompt..."
-        android:padding="5dp"
+        android:padding="9dp"
         android:textColor="@color/white"
         android:textSize="14sp"
 
@@ -49,6 +49,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/bg_prompt"
         android:fontFamily="@font/semibold"
+        android:padding="10dp"
         android:isScrollContainer="true"
         android:textColor="@color/white"
         android:textSize="14sp" />

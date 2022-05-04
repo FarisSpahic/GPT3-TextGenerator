@@ -14,51 +14,75 @@
         android:id="@+id/titleSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/bold"
         android:text="Fine-tune the model."
         android:textColor="@color/white"
         android:textSize="36sp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/bold"
-        android:layout_marginBottom="40dp"
 
         />
+
     <TextView
         android:id="@+id/tempTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/titleSettings"
+        android:fontFamily="@font/semibold"
         android:text="Temperature"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tempExpTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tempTV"
+        android:layout_marginBottom="10dp"
         android:fontFamily="@font/semibold"
-        />
+        android:text="Temperature defines how 'chaotic' and wild words will become."
+        android:textColor="@color/pink"
+        android:textSize="14sp" />
+
     <com.google.android.material.slider.RangeSlider
         android:id="@+id/temperature"
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:layout_below="@id/tempTV"
+        android:layout_below="@id/tempExpTV"
+        android:layout_marginBottom="20dp"
         android:valueFrom="0"
-        android:valueTo="1"
-        />
+        android:valueTo="1" />
+
     <TextView
         android:id="@+id/topkTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/temperature"
+        android:fontFamily="@font/semibold"
         android:text="Top K"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/topkExpTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topkTV"
         android:fontFamily="@font/semibold"
+        android:text="Top K defines how many words will model get for selection. High number but not too big (exp. less than 1000) is preferred."
+        android:textColor="@color/pink"
+        android:textSize="14sp"
+        android:layout_marginBottom="10dp"
         />
+
     <com.google.android.material.slider.RangeSlider
         android:id="@+id/topk"
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:layout_below="@id/topkTV"
-        android:valueFrom="0"
-        android:valueTo="1"
-        />
+        android:layout_below="@id/topkExpTV"
+        android:valueFrom="1"
+        android:valueTo="1000" />
 
 
 </RelativeLayout>
