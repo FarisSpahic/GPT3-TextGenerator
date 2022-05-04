@@ -48,9 +48,9 @@
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/bg_prompt"
+        android:fontFamily="@font/semibold"
         android:isScrollContainer="true"
         android:textColor="@color/white"
-        android:fontFamily="@font/semibold"
         android:textSize="14sp" />
 
     <RelativeLayout
@@ -85,8 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:background="@drawable/bg_buttons"
-            android:src="@drawable/ic_generate"
-            />
+            android:src="@drawable/ic_generate" />
 
     </RelativeLayout>
 
