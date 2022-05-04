@@ -110,16 +110,22 @@ public class MainActivity extends AppCompatActivity {
                        if(response.isSuccessful()) {
                         String txt = response.body().string();
                         StringBuilder stringBuilder = new StringBuilder();
+
                            String[] words = txt.split("\",\"");
                            stringBuilder.append(words[0]);
+
                            words = stringBuilder.toString().split(":\"");
                            stringBuilder.delete(0, stringBuilder.length());
 
-                           stringBuilder.append(words[0]);
+                           if(words.length == 1) stringBuilder.append(words[0]);
+                           else stringBuilder.append(words[1]);
+
+                           String outputString = stringBuilder.toString().replace("\\n\\n", "").replace("\\n", "");
+
                            MainActivity.this.runOnUiThread(new Runnable() {
                                @Override
                                public void run() {
-                                       generatedTV.setText(stringBuilder.toString());
+                                       generatedTV.setText(outputString);
 
                                }
                            });
